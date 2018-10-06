@@ -75,11 +75,17 @@ WSGI_APPLICATION = 'STF_LSTP.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
+        'ENGINE': 'sql_server.pyodbc',
+        'NAME': 'LSTP',
+        'USER': 'lstp-server',
+        'PASSWORD': 'STF-Admin',
+        'HOST': 'lstp-server.database.windows.net',
+        'PORT': '1433',
+        'OPTIONS': {
+            'driver': 'SQL Server Native Client 11.0',
+        },
+    },
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
